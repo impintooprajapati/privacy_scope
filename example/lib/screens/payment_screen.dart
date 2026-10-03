@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:privacy_scope/privacy_scope.dart';
+
 import '../widgets/privacy_debug_panel.dart';
 
 class PaymentScreen extends StatelessWidget {
@@ -37,7 +38,10 @@ class PaymentScreen extends StatelessWidget {
                   Expanded(
                     child: Text(
                       'High Security Policy Active\n• Android: Screenshots & recordings blocked.\n• iOS: App-switcher preview masked; capture events detected.',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ],
@@ -96,34 +100,58 @@ class PaymentScreen extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('CARDHOLDER (DEMO)',
-                              style: TextStyle(color: Colors.white54, fontSize: 10)),
-                          Text('JANE DOE',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold)),
+                          Text(
+                            'CARDHOLDER (DEMO)',
+                            style: TextStyle(
+                              color: Colors.white54,
+                              fontSize: 10,
+                            ),
+                          ),
+                          Text(
+                            'JANE DOE',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('EXPIRES',
-                              style: TextStyle(color: Colors.white54, fontSize: 10)),
-                          Text('12/28',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold)),
+                          Text(
+                            'EXPIRES',
+                            style: TextStyle(
+                              color: Colors.white54,
+                              fontSize: 10,
+                            ),
+                          ),
+                          Text(
+                            '12/28',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ],
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text('CVV (DEMO)',
-                              style: TextStyle(color: Colors.white54, fontSize: 10)),
-                          Text('942',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold)),
+                          Text(
+                            'CVV (DEMO)',
+                            style: TextStyle(
+                              color: Colors.white54,
+                              fontSize: 10,
+                            ),
+                          ),
+                          Text(
+                            '942',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -141,9 +169,13 @@ class PaymentScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('Amount Due:'),
-                        Text('\$149.00 USD',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold)),
+                        Text(
+                          '\$149.00 USD',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
                       ],
                     ),
                     Divider(height: 24),

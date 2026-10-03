@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:privacy_scope/privacy_scope.dart';
+
 import '../widgets/privacy_debug_panel.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -14,9 +15,7 @@ class ProfileScreen extends StatelessWidget {
       ),
       debugLabel: 'ProfileScreen (Blur AppSwitcher)',
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('User Profile'),
-        ),
+        appBar: AppBar(title: const Text('User Profile')),
         bottomNavigationBar: const PrivacyDebugPanel(),
         body: ListView(
           padding: const EdgeInsets.all(16),
@@ -35,7 +34,10 @@ class ProfileScreen extends StatelessWidget {
                   Expanded(
                     child: Text(
                       'App Switcher Blur Active\nScreenshots are allowed, but leaving the app obscures this screen in the app switcher.',
-                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
                   ),
                 ],

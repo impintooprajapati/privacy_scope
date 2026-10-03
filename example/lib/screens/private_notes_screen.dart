@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:privacy_scope/privacy_scope.dart';
+
 import '../widgets/privacy_debug_panel.dart';
 
 class PrivateNotesScreen extends StatefulWidget {
@@ -41,7 +42,10 @@ class _PrivateNotesScreenState extends State<PrivateNotesScreen> {
                   Expanded(
                     child: Text(
                       'Strict Privacy Scope Active\nDemonstrates nested scopes below. Tapping the Vault unlocks an inner PrivacyScope.',
-                      style: TextStyle(fontSize: 12, fontWeight: FontWeight.w600),
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ],
@@ -80,12 +84,16 @@ class _PrivateNotesScreenState extends State<PrivateNotesScreen> {
                     children: [
                       const Text(
                         'Nested Vault Scope Demo',
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
                       ),
                       Switch(
                         value: _vaultUnlocked,
                         activeThumbColor: Colors.teal,
-                        onChanged: (val) => setState(() => _vaultUnlocked = val),
+                        onChanged: (val) =>
+                            setState(() => _vaultUnlocked = val),
                       ),
                     ],
                   ),
@@ -112,7 +120,11 @@ class _PrivateNotesScreenState extends State<PrivateNotesScreen> {
                           children: [
                             Row(
                               children: [
-                                Icon(Icons.security, color: Colors.amber, size: 20),
+                                Icon(
+                                  Icons.security,
+                                  color: Colors.amber,
+                                  size: 20,
+                                ),
                                 SizedBox(width: 8),
                                 Text(
                                   'NESTED PRIVACY SCOPE MOUNTED',
@@ -127,7 +139,10 @@ class _PrivateNotesScreenState extends State<PrivateNotesScreen> {
                             SizedBox(height: 8),
                             Text(
                               'Seed Phrase (Demo):',
-                              style: TextStyle(color: Colors.white70, fontSize: 11),
+                              style: TextStyle(
+                                color: Colors.white70,
+                                fontSize: 11,
+                              ),
                             ),
                             Text(
                               'ocean velvet castle guitar timber echo lantern quantum',

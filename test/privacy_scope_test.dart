@@ -42,11 +42,14 @@ void main() {
       );
 
       // Policy restored to standard
-      expect(controller.state.activePolicy, equals(const PrivacyPolicy.standard()));
-      expect(platform.appliedPolicies.last, equals(const PrivacyPolicy.standard()));
+      expect(controller.state.activePolicy,
+          equals(const PrivacyPolicy.standard()));
+      expect(platform.appliedPolicies.last,
+          equals(const PrivacyPolicy.standard()));
     });
 
-    testWidgets('updates policy when widget updates', (WidgetTester tester) async {
+    testWidgets('updates policy when widget updates',
+        (WidgetTester tester) async {
       const policy1 = PrivacyPolicy(
         screenshot: ScreenshotPolicy.allow,
         appSwitcher: AppSwitcherPolicy.blur,
@@ -237,7 +240,8 @@ void main() {
       expect(find.text('Secret Screen'), findsOneWidget);
 
       // Pop secret screen
-      final navigatorState = tester.state<NavigatorState>(find.byType(Navigator));
+      final navigatorState =
+          tester.state<NavigatorState>(find.byType(Navigator));
       navigatorState.pop();
       await tester.pumpAndSettle();
 

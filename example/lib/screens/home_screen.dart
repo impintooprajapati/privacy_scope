@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:privacy_scope/privacy_scope.dart';
+
 import '../widgets/privacy_debug_panel.dart';
 import 'payment_screen.dart';
 import 'private_notes_screen.dart';
@@ -14,10 +15,7 @@ class HomeScreen extends StatelessWidget {
       policy: const PrivacyPolicy.standard(),
       debugLabel: 'HomeScreen (Standard)',
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('PrivacyScope Demo'),
-          elevation: 0,
-        ),
+        appBar: AppBar(title: const Text('PrivacyScope Demo'), elevation: 0),
         bottomNavigationBar: const PrivacyDebugPanel(),
         body: ListView(
           padding: const EdgeInsets.all(16),
@@ -78,8 +76,7 @@ class HomeScreen extends StatelessWidget {
               context,
               icon: Icons.credit_card,
               title: '2. Payment & Checkout',
-              subtitle:
-                  'Screenshots blocked on Android; App switcher hidden on iOS & Android.',
+              subtitle: 'Screenshots blocked on Android; App switcher hidden on iOS & Android.',
               policyTag: 'Screenshots: Block, Switcher: Hide',
               color: Colors.deepPurple,
               onTap: () {
@@ -93,8 +90,7 @@ class HomeScreen extends StatelessWidget {
               context,
               icon: Icons.lock_outline,
               title: '3. Private Notes & Vault',
-              subtitle:
-                  'PrivacyPolicy.strict() + nested scope for sensitive secret vault.',
+              subtitle: 'PrivacyPolicy.strict() + nested scope for sensitive secret vault.',
               policyTag: 'PrivacyPolicy.strict() + Nested',
               color: Colors.teal,
               onTap: () {

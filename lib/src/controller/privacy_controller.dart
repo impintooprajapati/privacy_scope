@@ -113,8 +113,11 @@ class PrivacyController {
     );
 
     // Apply asynchronously to native platform
-    _platform.applyPolicy(effectivePolicy).catchError((Object error, StackTrace stack) {
-      debugPrint('PrivacyController: Failed to apply policy to native platform: $error');
+    _platform
+        .applyPolicy(effectivePolicy)
+        .catchError((Object error, StackTrace stack) {
+      debugPrint(
+          'PrivacyController: Failed to apply policy to native platform: $error');
     });
 
     _eventController.add(
@@ -133,11 +136,12 @@ class PrivacyController {
     }
 
     // Sort by depth descending, then sequence descending
-    final sorted = List<ScopeRegistration>.from(_registrations)..sort((a, b) {
-      final depthCompare = b.depth.compareTo(a.depth);
-      if (depthCompare != 0) return depthCompare;
-      return b.sequence.compareTo(a.sequence);
-    });
+    final sorted = List<ScopeRegistration>.from(_registrations)
+      ..sort((a, b) {
+        final depthCompare = b.depth.compareTo(a.depth);
+        if (depthCompare != 0) return depthCompare;
+        return b.sequence.compareTo(a.sequence);
+      });
 
     return sorted.first.policy;
   }

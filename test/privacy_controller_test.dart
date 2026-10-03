@@ -17,9 +17,11 @@ void main() {
     });
 
     test('initial state defaults to standard policy', () {
-      expect(controller.state.activePolicy, equals(const PrivacyPolicy.standard()));
+      expect(controller.state.activePolicy,
+          equals(const PrivacyPolicy.standard()));
       expect(controller.state.screenshotProtectionEnabled, isFalse);
-      expect(controller.state.appSwitcherPolicy, equals(AppSwitcherPolicy.allow));
+      expect(
+          controller.state.appSwitcherPolicy, equals(AppSwitcherPolicy.allow));
       expect(controller.activeRegistrations, isEmpty);
     });
 
@@ -33,7 +35,8 @@ void main() {
       expect(controller.activeRegistrations.length, equals(1));
       expect(controller.state.activePolicy, equals(strictPolicy));
       expect(controller.state.screenshotProtectionEnabled, isTrue);
-      expect(controller.state.appSwitcherPolicy, equals(AppSwitcherPolicy.hide));
+      expect(
+          controller.state.appSwitcherPolicy, equals(AppSwitcherPolicy.hide));
 
       // Check platform call
       expect(platform.appliedPolicies.length, equals(1));
@@ -65,13 +68,16 @@ void main() {
       controller.unregisterScope(reg);
 
       expect(controller.activeRegistrations, isEmpty);
-      expect(controller.state.activePolicy, equals(const PrivacyPolicy.standard()));
+      expect(controller.state.activePolicy,
+          equals(const PrivacyPolicy.standard()));
       expect(controller.state.screenshotProtectionEnabled, isFalse);
-      expect(controller.state.appSwitcherPolicy, equals(AppSwitcherPolicy.allow));
+      expect(
+          controller.state.appSwitcherPolicy, equals(AppSwitcherPolicy.allow));
 
       // Platform was called twice: once for strict, once to restore standard
       expect(platform.appliedPolicies.length, equals(2));
-      expect(platform.appliedPolicies.last, equals(const PrivacyPolicy.standard()));
+      expect(platform.appliedPolicies.last,
+          equals(const PrivacyPolicy.standard()));
     });
 
     test('nested scope with higher depth takes priority over parent scope', () {
@@ -81,7 +87,8 @@ void main() {
       );
       const childPolicy = PrivacyPolicy.strict();
 
-      final parentReg = controller.registerScope(policy: parentPolicy, depth: 0);
+      final parentReg =
+          controller.registerScope(policy: parentPolicy, depth: 0);
       expect(controller.state.activePolicy, equals(parentPolicy));
 
       final childReg = controller.registerScope(policy: childPolicy, depth: 1);
@@ -93,10 +100,13 @@ void main() {
 
       // Unregister parent -> restores standard
       controller.unregisterScope(parentReg);
-      expect(controller.state.activePolicy, equals(const PrivacyPolicy.standard()));
+      expect(controller.state.activePolicy,
+          equals(const PrivacyPolicy.standard()));
     });
 
-    test('multiple scopes at same depth resolve by latest registration sequence', () {
+    test(
+        'multiple scopes at same depth resolve by latest registration sequence',
+        () {
       const policy1 = PrivacyPolicy(
         screenshot: ScreenshotPolicy.allow,
         appSwitcher: AppSwitcherPolicy.blur,
@@ -114,10 +124,12 @@ void main() {
       expect(controller.state.activePolicy, equals(policy1));
 
       controller.unregisterScope(reg1);
-      expect(controller.state.activePolicy, equals(const PrivacyPolicy.standard()));
+      expect(controller.state.activePolicy,
+          equals(const PrivacyPolicy.standard()));
     });
 
-    test('dynamic updateScope updates policy and recomputes effective policy', () {
+    test('dynamic updateScope updates policy and recomputes effective policy',
+        () {
       const initialPolicy = PrivacyPolicy(
         screenshot: ScreenshotPolicy.allow,
         appSwitcher: AppSwitcherPolicy.blur,

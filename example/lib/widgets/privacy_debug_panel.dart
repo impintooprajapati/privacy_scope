@@ -1,4 +1,5 @@
 import 'dart:io' show Platform;
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:privacy_scope/privacy_scope.dart';
@@ -29,10 +30,10 @@ class _PrivacyDebugPanelState extends State<PrivacyDebugPanel> {
         final platformName = kIsWeb
             ? 'Web'
             : Platform.isAndroid
-                ? 'Android'
-                : Platform.isIOS
-                    ? 'iOS'
-                    : Platform.operatingSystem;
+            ? 'Android'
+            : Platform.isIOS
+            ? 'iOS'
+            : Platform.operatingSystem;
 
         final theme = Theme.of(context);
 
@@ -79,7 +80,9 @@ class _PrivacyDebugPanelState extends State<PrivacyDebugPanel> {
                       ),
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 4),
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
                         decoration: BoxDecoration(
                           color: policy.hasRestrictions
                               ? Colors.red.withValues(alpha: 0.12)
@@ -109,15 +112,21 @@ class _PrivacyDebugPanelState extends State<PrivacyDebugPanel> {
                 ),
                 if (_expanded) ...[
                   const Divider(height: 20),
-                  _buildRow('Screenshots', policy.screenshot.name.toUpperCase(),
-                      policy.screenshot == ScreenshotPolicy.block),
-                  _buildRow('App Switcher',
-                      policy.appSwitcher.name.toUpperCase(),
-                      policy.appSwitcher != AppSwitcherPolicy.allow),
                   _buildRow(
-                      'Screen Capture Detected',
-                      state.isCaptured ? 'YES (Active)' : 'No',
-                      state.isCaptured),
+                    'Screenshots',
+                    policy.screenshot.name.toUpperCase(),
+                    policy.screenshot == ScreenshotPolicy.block,
+                  ),
+                  _buildRow(
+                    'App Switcher',
+                    policy.appSwitcher.name.toUpperCase(),
+                    policy.appSwitcher != AppSwitcherPolicy.allow,
+                  ),
+                  _buildRow(
+                    'Screen Capture Detected',
+                    state.isCaptured ? 'YES (Active)' : 'No',
+                    state.isCaptured,
+                  ),
                   _buildRow(
                     'Active Scopes in Stack',
                     '${registrations.length} registered',
