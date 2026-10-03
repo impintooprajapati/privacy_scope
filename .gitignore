@@ -13,5 +13,17 @@ build/
 # Docs
 docs/
 
+# Android
+.gradle/
+**/android/.gradle/
+local.properties
+**/android/local.properties
+*.keystore
+
+# iOS
+Pods/
+.symlinks/
+**/ios/Pods/
+
 # macOS
 .DS_Store
