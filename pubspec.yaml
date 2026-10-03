@@ -1,0 +1,36 @@
+name: privacy_scope
+description: Context-aware privacy protection for Flutter apps. Apply screenshot protection, app-switcher privacy, and sensitive-screen policies only where your app needs them.
+version: 0.1.0
+homepage: https://github.com/impintooprajapati/privacy_scope
+repository: https://github.com/impintooprajapati/privacy_scope
+issue_tracker: https://github.com/impintooprajapati/privacy_scope/issues
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: '>=3.10.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  meta: ^1.11.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.impintooprajapati.privacy_scope
+        pluginClass: PrivacyScopePlugin
+      ios:
+        pluginClass: PrivacyScopePlugin
+
+topics:
+  - privacy
+  - security
+  - screenshot
+  - flutter
+  - app-security
