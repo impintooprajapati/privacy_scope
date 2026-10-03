@@ -11,7 +11,7 @@ Context-aware privacy protection for Flutter apps. Apply screenshot protection, 
                        DESC
   s.homepage         = 'https://github.com/impintooprajapati/privacy_scope'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Pintoo Prajapati' => 'email@example.com' }
+  s.author           = { 'Pintoo Prajapati' => 'iampintooprajapati@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.dependency 'Flutter'
